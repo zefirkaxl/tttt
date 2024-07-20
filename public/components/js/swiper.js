@@ -12,7 +12,7 @@ function initializeSwiper() {
 
 
   // Перевірка на висоту і ширину
-  if (height <= 850 || width <= 1242) {
+  if (height <= 896 || width <= 1242) {
     if (!swiperInstance) {
       swiperInstance = new Swiper(".swiper", {
         modules: [Navigation],
