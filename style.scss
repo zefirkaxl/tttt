@@ -1,0 +1,145 @@
+@import "./public/components/scss/variable.scss";
+@import "./public/components/scss/mixin.scss";
+@import "./public/components/scss/null.scss";
+.body {
+  width: 100vw;
+  height: 100vh;
+  line-height: 1.35;
+  background: url("./public/components/img/bgPc.png") 0 0 /100% 100% no-repeat;
+  @media (max-width: $mobile) {
+    background: url("./public/components/img/bgMob.png") 0 0 /100% 100% no-repeat;
+  }
+}
+.wraper {
+  max-width: toRem(1230);
+  margin: 0 auto;
+  padding: 0 toRem(15);
+}
+.header {
+  @include adaptiveValue("padding-top", 40, 20);
+  @include adaptiveValue("padding-bottom", 40, 20);
+
+  &__logo {
+    @media (max-width: $mobile) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+.fade {
+  animation: fadeOut 0.9s ease-in-out infinite;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate(20px);
+  }
+}
+.main {
+  overflow: hidden;
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    @include adaptiveValue("font-size", 64, 25);
+    line-height: 1.2;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #000 0%, #4c4c4c 51.43%, #000 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    @include adaptiveValue("margin-bottom", 10, 13);
+    @media (max-width: $mobile) {
+      text-align: center;
+      display: block;
+    }
+  }
+
+  &__sup-title {
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+    max-width: toRem(700);
+    @include adaptiveValue("font-size", 16, 14);
+
+    @include adaptiveValue("margin-bottom", 50, 40);
+  }
+  &__animate {
+    margin-bottom: toRem(40);
+    width: 100%;
+  }
+}
+.images-main-box {
+  display: flex;
+  align-items: start;
+  &__vertical-text {
+    writing-mode: vertical-rl;
+
+    @include adaptiveValue("font-size", 20, 18);
+    text-orientation: upright;
+    text-align: left;
+    @include adaptiveValue("padding-left", 27, 12);
+    @media (max-height: 750px) {
+      writing-mode: horizontal-tb;
+    }
+  }
+}
+
+.swiper {
+  &__button-box {
+    display: none;
+    margin-top: toRem(15);
+
+    @media (max-height: 850px), (max-width: 1242px) {
+      display: flex;
+
+      justify-content: space-between;
+    }
+  }
+}
+.swiper-wrapper {
+  @media (min-height: 850px) and (min-width: 1242px) {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+  }
+}
+
+.swiper-slide {
+  // display: inline-block;
+  position: relative;
+  max-width: max-content;
+  max-height: max-content;
+  @include adaptiveValue("max-width", 375, 260);
+  @include adaptiveValue("min-height", 245, 170);
+  img {
+    width: 100%;
+    max-height: max-content;
+  }
+  &_info {
+    img {
+      position: absolute;
+      width: 100%;
+      max-height: 100%;
+    }
+    p {
+      @include adaptiveValue("font-size", 16, 14);
+
+      color: white;
+      @include adaptiveValue("padding", 20, 15);
+      @include adaptiveValue("width", 330, 235);
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.swiper-button-left {
+}
+.swiper-button-right {
+}
