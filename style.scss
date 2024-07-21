@@ -66,13 +66,15 @@
   align-items: start;
   &__vertical-text {
     writing-mode: vertical-rl;
-
+    
     @include adaptiveValue("font-size", 20, 18);
     text-orientation: upright;
     text-align: left;
     @include adaptiveValue("padding-left", 27, 12);
+    
     @media (max-height: 750px) {
-      writing-mode: horizontal-tb;
+      writing-mode:vertical-lr;
+      max-height: 300px;
     }
   }
 }
@@ -90,6 +92,7 @@
   }
 }
 .swiper-wrapper {
+  
   @media (min-height: 896px) and (min-width: 1242px) {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
@@ -100,6 +103,7 @@
 
 .swiper-slide {
   // display: inline-block;
+
   position: relative;
   max-width: max-content;
   max-height: max-content;
@@ -126,9 +130,6 @@
     }
   }
 }
-// .fade {
-//   animation: fadeOut 0.9s ease-in-out infinite;
-// }
 
 .fade {
   opacity: 0;
